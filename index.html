@@ -181,10 +181,15 @@
         transform: translateY(10px);
         box-shadow: 0 0 10px #0077b5;
       }
-      100% {
+      90% {
         opacity: 1;
         transform: translateY(0);
         box-shadow: 0 0 20px #0077b5;
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        box-shadow: none; /* Glow removed at end */
       }
     }
 
@@ -275,8 +280,6 @@
     toggle.addEventListener('click', () => {
       nav.classList.toggle('active');
     });
-
-    // Removed the JS glow toggling to use CSS animation instead
   </script>
 
 </body>
