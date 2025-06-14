@@ -254,26 +254,25 @@
   </footer>
 
   <script>
-    const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('main-nav');
-    const img = document.getElementById('profile-img');
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('main-nav');
+  const img = document.getElementById('profile-img');
 
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
 
-    window.onload = () => {
-      // Wait a bit to let fade-in animation begin
-      setTimeout(() => {
-        img.classList.add('glow');
+  // Trigger glow AFTER fade-in completes (1.5s animation + 0.6s delay)
+  setTimeout(() => {
+    img.classList.add('glow');
 
-        // Remove the glow after animation (1.5s + 0.6s = 2.1s)
-        setTimeout(() => {
-          img.classList.remove('glow');
-        }, 2100);
-      }, 100); // slight buffer for smooth effect
-    };
-  </script>
+    // Remove glow after 1.5s
+    setTimeout(() => {
+      img.classList.remove('glow');
+    }, 1500);
+  }, 2100);
+</script>
+
 
 </body>
 </html>
