@@ -256,20 +256,24 @@
   <script>
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav');
+    const img = document.getElementById('profile-img');
 
     toggle.addEventListener('click', () => {
       nav.classList.toggle('active');
     });
 
-    // Wait for all resources including image to load
-    window.addEventListener('load', () => {
-      const img = document.getElementById('profile-img');
+    function triggerGlow() {
       img.classList.add('glow-on-load');
-
       setTimeout(() => {
         img.classList.remove('glow-on-load');
-      }, 2100); // fadeIn 1.5s + 0.6s delay
-    });
+      }, 2100); // matches fadeIn timing
+    }
+
+    if (img.complete) {
+      triggerGlow();
+    } else {
+      img.addEventListener('load', triggerGlow);
+    }
   </script>
 
 </body>
