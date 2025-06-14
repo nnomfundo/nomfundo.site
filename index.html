@@ -154,10 +154,9 @@
       margin-top: -2.08rem;
     }
 
-    /* Fade-in and move up animation only on the container */
     .profile {
       opacity: 0;
-      animation: fadeIn 1.56s ease-out 0.6s forwards;
+      animation: fadeIn 1.5s ease-out 0.6s forwards;
     }
 
     @keyframes fadeIn {
@@ -171,28 +170,20 @@
       }
     }
 
-    /* Glow animation only on the image */
     .profile img {
       width: 310px;
       height: 310px;
       border-radius: 50%;
       object-fit: cover;
-      transition: box-shadow 1.5s ease;
-      animation: glowFade 3s ease forwards;
+      transition: box-shadow 0.4s ease;
+    }
+
+    .glow-on-load {
       box-shadow: 0 0 20px #0077b5;
     }
 
-    @keyframes glowFade {
-      0%, 35% {
-        box-shadow: 0 0 20px #0077b5;
-      }
-      100% {
-        box-shadow: none;
-      }
-    }
-
     .profile img:hover {
-      box-shadow: 0 0 20px #0077b5 !important;
+      box-shadow: 0 0 20px #0077b5;
     }
 
     .description {
@@ -247,7 +238,7 @@
 
   <main class="center-content">
     <div class="profile">
-      <img id="profile-img" src="me.jpg" alt="Your Profile Picture" />
+      <img id="profile-img" src="me.jpg" alt="Your Profile Picture" class="glow-on-load" />
       <p class="description">Aeronautical Engineering Student</p>
       <p class="institution">University of the Witwatersrand</p>
     </div>
@@ -268,6 +259,14 @@
 
     toggle.addEventListener('click', () => {
       nav.classList.toggle('active');
+    });
+
+    // Remove initial glow after fade-in animation (1.5s + 0.6s delay)
+    window.addEventListener('DOMContentLoaded', () => {
+      const img = document.getElementById('profile-img');
+      setTimeout(() => {
+        img.classList.remove('glow-on-load');
+      }, 2100); // matches 1.5s animation + 0.6s delay
     });
   </script>
 
