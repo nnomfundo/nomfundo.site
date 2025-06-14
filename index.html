@@ -170,16 +170,31 @@
       }
     }
 
+    @keyframes fadeInGlow {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+        box-shadow: none;
+      }
+      50% {
+        opacity: 0.5;
+        transform: translateY(10px);
+        box-shadow: 0 0 10px #0077b5;
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        box-shadow: 0 0 20px #0077b5;
+      }
+    }
+
     .profile img {
       width: 310px;
       height: 310px;
       border-radius: 50%;
       object-fit: cover;
+      animation: fadeInGlow 1.5s ease-out 0.6s forwards;
       transition: box-shadow 0.4s ease;
-    }
-
-    .profile img.glow {
-      box-shadow: 0 0 20px #0077b5;
     }
 
     .profile img:hover {
@@ -256,21 +271,12 @@
   <script>
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav');
-    const img = document.getElementById('profile-img');
 
     toggle.addEventListener('click', () => {
       nav.classList.toggle('active');
     });
 
-    // Start glow together with fade-in (after 0.6s)
-    setTimeout(() => {
-      img.classList.add('glow');
-
-      // Remove glow after 1.5s
-      setTimeout(() => {
-        img.classList.remove('glow');
-      }, 1500);
-    }, 600); // Match fade-in delay
+    // Removed the JS glow toggling to use CSS animation instead
   </script>
 
 </body>
