@@ -238,7 +238,7 @@
 
   <main class="center-content">
     <div class="profile">
-      <img id="profile-img" src="me.jpg" alt="Your Profile Picture" class="glow-on-load" />
+      <img id="profile-img" src="me.jpg" alt="Your Profile Picture" />
       <p class="description">Aeronautical Engineering Student</p>
       <p class="institution">University of the Witwatersrand</p>
     </div>
@@ -261,12 +261,14 @@
       nav.classList.toggle('active');
     });
 
-    // Remove initial glow after fade-in animation (1.5s + 0.6s delay)
-    window.addEventListener('DOMContentLoaded', () => {
+    // Wait for all resources including image to load
+    window.addEventListener('load', () => {
       const img = document.getElementById('profile-img');
+      img.classList.add('glow-on-load');
+
       setTimeout(() => {
         img.classList.remove('glow-on-load');
-      }, 2100); // matches 1.5s animation + 0.6s delay
+      }, 2100); // fadeIn 1.5s + 0.6s delay
     });
   </script>
 
