@@ -178,7 +178,7 @@
       transition: box-shadow 0.4s ease;
     }
 
-    .glow-on-load {
+    .glow {
       box-shadow: 0 0 20px #0077b5;
     }
 
@@ -262,18 +262,17 @@
       nav.classList.toggle('active');
     });
 
-    function triggerGlow() {
-      img.classList.add('glow-on-load');
+    window.onload = () => {
+      // Wait a bit to let fade-in animation begin
       setTimeout(() => {
-        img.classList.remove('glow-on-load');
-      }, 2100); // matches fadeIn timing
-    }
+        img.classList.add('glow');
 
-    if (img.complete) {
-      triggerGlow();
-    } else {
-      img.addEventListener('load', triggerGlow);
-    }
+        // Remove the glow after animation (1.5s + 0.6s = 2.1s)
+        setTimeout(() => {
+          img.classList.remove('glow');
+        }, 2100);
+      }, 100); // slight buffer for smooth effect
+    };
   </script>
 
 </body>
