@@ -233,7 +233,7 @@
     <nav id="main-nav">
       <a href="#">Projects</a>
       <a href="#">Notes</a>
-      <a href="#">About</a>
+      <a href="about.html">About</a>
     </nav>
   </header>
 
@@ -262,12 +262,11 @@
       nav.classList.toggle('active');
     });
 
-    // Remove initial glow after fade-in animation (1.5s + 0.6s delay)
     window.addEventListener('DOMContentLoaded', () => {
       const img = document.getElementById('profile-img');
       setTimeout(() => {
         img.classList.remove('glow-on-load');
-      }, 2100); // matches 1.5s animation + 0.6s delay
+      }, 2100);
     });
   </script>
 
