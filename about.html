@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | Nomfundo Mkhwanazi</title>
-   <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="favicon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * {
@@ -67,27 +67,70 @@
       max-width: 800px;
       margin: 7rem auto 2rem auto;
       padding: 2rem;
-      text-align: center;
     }
 
-    h2 {
+    .summary {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .summary h2 {
       font-size: 1.6rem;
       margin-bottom: 1rem;
     }
 
-    p {
+    .summary p {
       color: #aaa;
       font-size: 1rem;
       line-height: 1.7;
     }
 
-    @media (max-width: 768px) {
-  header h1 {
-    padding-left: 1rem; /* small padding like main page mobile */
-    margin-top: 2.6rem; /* keep your vertical spacing */
-  }
-}
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
 
+    .contact-info a {
+      color: #eaeaea;
+      text-decoration: underline;
+    }
+
+    .cv-section {
+      text-align: left;
+    }
+
+    .cv-section h2 {
+      font-size: 1.6rem;
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .cv-section p {
+      color: #aaa;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        padding-left: 1rem;
+        margin-top: 2.6rem;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      main {
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -97,10 +140,39 @@
   </header>
 
   <main>
-    <h2>About Me</h2>
-    <p>
-     Hi, I’m Nomfundo Mkhwanazi — an Aeronautical Engineering student at the University of the Witwatersrand. I’m fascinated by how things work — from aircraft and machines to the systems behind them. Creativity and problem-solving are at the heart of how I think, which naturally led me to explore code, CAD, and hands-on projects that turn theory into something you can see, test, and improve. I'm currently learning by building with Arduino, engineering design tools, and automation — and documenting the journey as I go.
-    </p>
+    <div class="summary">
+      <h2>About Me</h2>
+      <p>
+        Hi, I’m Nomfundo Mkhwanazi — an Aeronautical Engineering student at the University of the Witwatersrand. I’m fascinated by how things work — from aircraft and machines to the systems behind them. Creativity and problem-solving are at the heart of how I think, which naturally led me to explore code, CAD, and hands-on projects that turn theory into something you can see, test, and improve. I'm currently learning by building with Arduino, engineering design tools, and automation — and documenting the journey as I go.
+      </p>
+    </div>
+
+    <div class="contact-info">
+      <a href="mailto:nnomfundo.mkhwanazi@gmail.com">nnomfundo.mkhwanazi@gmail.com</a>
+      <a href="tel:+27646315119">(064) 631-5119</a>
+    </div>
+
+    <div class="cv-section">
+      <h2>Skills</h2>
+      <p>
+        <b>Programming:</b> Python, HTML/CSS<br>
+        <b>Mechanical:</b> MATLAB, CAD
+      </p>
+
+      <h2>Education</h2>
+      <p>
+        <b>University of the Witwatersrand, Johannesburg</b><br>
+        BSc in Biological Sciences (2023)<br>
+        Certificates of First Class: Mathematics (1st year), Statistics (2nd year)<br><br>
+        BSc (Hons) in Aeronautical Engineering (Expected 2028)
+      </p>
+
+      <h2>Experience</h2>
+      <p>
+        Engineers for the Future (2025 – present)<br>
+        Administrative Assistant
+      </p>
+    </div>
   </main>
 
 </body>
