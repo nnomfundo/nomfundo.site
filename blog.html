@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog | Nomfundo Mkhwanazi</title>
+  <title>About | Nomfundo Mkhwanazi</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * {
       margin: 0;
@@ -37,7 +38,7 @@
       font-size: 1.37rem;
       font-weight: 700;
       padding-left: 10rem;
-      margin-top: 2.6rem;
+      margin-top: 1.6rem;
     }
 
     header h1 a {
@@ -61,90 +62,144 @@
       width: 100%;
     }
 
-    main {
-      max-width: 900px;
-      margin: 7rem auto 2rem auto;
-      padding: 2rem;
+    nav {
+      padding-right: 9rem;
+      margin-top: 4rem;
     }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    .section-title {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid #444;
-      padding-bottom: 0.5rem;
-      text-align: center;
-    }
-
-    .tab-buttons {
-      display: flex;
-      justify-content: space-around;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
-
-    .tab-buttons button {
-      background-color: #2b2b2b;
-      border: 1px solid #444;
-      padding: 0.6rem 1.5rem;
-      color: #eaeaea;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 5px;
-      margin: 0.5rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .tab-buttons button:hover,
-    .tab-buttons button.active {
-      background-color: #0077b5;
-    }
-
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.3s ease-in;
-      margin-top: 1rem;
-      color: #ccc;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    blockquote {
-      font-style: italic;
-      margin: 1rem 0;
-      padding-left: 1rem;
-      border-left: 3px solid #444;
+    nav a {
+      margin-left: 1.5rem;
       color: #aaa;
+      text-decoration: none;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+      cursor: pointer;
     }
 
-    cite {
-      display: block;
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: #777;
+    nav a::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background: #0077b5;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+    nav a:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: #eaeaea;
+      cursor: pointer;
+      padding-right: 2rem;
     }
 
     @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #1a1a1a;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0;
+        text-align: center;
+      }
+
+      nav a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
       header h1 {
         padding-left: 1rem;
         margin-top: 2.6rem;
       }
+    }
 
-      .tab-buttons {
+    main {
+      max-width: 800px;
+      margin: 7rem auto 2rem auto;
+      padding: 2rem;
+    }
+
+    .summary {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .summary h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .summary p {
+      color: #aaa;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-info a {
+      color: #eaeaea;
+      text-decoration: underline;
+    }
+
+    .cv-section {
+      text-align: left;
+    }
+
+    .cv-section h2 {
+      font-size: 1.6rem;
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .cv-section p {
+      color: #aaa;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .contact-info {
         flex-direction: column;
         align-items: center;
+        gap: 0.5rem;
+      }
+
+      main {
+        padding: 1rem;
       }
     }
   </style>
@@ -153,69 +208,60 @@
 
   <header>
     <h1><a href="index.html">Nomfundo Mkhwanazi</a></h1>
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="main-nav">
+      <a href="index.html">Projects</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+    </nav>
   </header>
 
   <main>
-    <h2>Notes</h2>
-
-    <div class="section-title">Personal Development</div>
-
-    <div class="tab-buttons">
-      <button class="tab-link active" onclick="openTab(event, 'quotes')">Quotes</button>
-      <button class="tab-link" onclick="openTab(event, 'journaling')">Journaling</button>
-      <button class="tab-link" onclick="openTab(event, 'habits')">Habits</button>
-      <button class="tab-link" onclick="openTab(event, 'study')">Study Tips</button>
+    <div class="summary">
+      <h2>About Me</h2>
+      <p>
+        Hi, I’m Nomfundo Mkhwanazi — an Aeronautical Engineering student at the University of the Witwatersrand. I’m fascinated by how things work — from aircraft and machines to the systems behind them. Creativity and problem-solving are at the heart of how I think, which naturally led me to explore code, CAD, and hands-on projects that turn theory into something you can see, test, and improve. I'm currently learning by building with Arduino, engineering design tools, and automation — and documenting the journey as I go.
+      </p>
     </div>
 
-    <div id="quotes" class="tab-content active">
-       <blockquote>“Be quick, be quiet, be on time.”<cite>— Clarence Leonard 'Kelly' Johnson</cite></blockquote>
-      <blockquote>“There's really not a difficult thing unless you decide it's a difficult thing. Otherwise, it's just the next thing you're figuring out.”<cite>— Kai Skye</cite></blockquote>
+    <div class="contact-info">
+      <a href="mailto:nnomfundo.mkhwanazi@gmail.com">nnomfundo.mkhwanazi@gmail.com</a>
+      <a href="tel:+27646315119">(064) 631-5119</a>
     </div>
 
-   <div id="journaling" class="tab-content">
-  <p style="margin-bottom: 20px;"> Journaling is a powerful tool for self-reflection, clarity, and growth. Whether it's used to process emotions, track progress, or capture fleeting thoughts, writing regularly helps individuals stay grounded and intentional in their daily lives. It creates a safe space to untangle complex feelings, set meaningful goals, and observe patterns over time. For many, journaling becomes not just a habit but a companion in personal development — a mirror that reflects where they've been, where they are, and where they hope to go.
-    
-  </p>
-  <p  style="margin-bottom: 20px;"> Journaling has helped me reflect and restart with clear goals. I make it a habit to read through my journals every six months to see whether the thoughts I wrote intuitively still reflect the kind of person I'm striving to become. It's easy to get lost in moments and forget to be intentional with every decision — but my journal reflects my state of mind. I use it to go back, introspect, and make sure my actions align with my long-term goals. This is an ongoing practice. It definitely gets easier, and with time, becomes second nature.
-  </p>   
-  <p> It's wonderful to witness your own growth — to see how your thoughts, values, and self awareness have evolved over time, and to know that the growth was intentional.
-  </p>
-</div>
+    <div class="cv-section">
+      <h2>Skills</h2>
+      <p>
+        <b>Programming:</b> Python, HTML/CSS, LaTeX<br>
+        <b>Mechanical:</b> MATLAB, CAD
+      </p>
 
+      <h2>Education</h2>
+      <p>
+        <b>University of the Witwatersrand, Johannesburg</b><br>
+        BSc in Biological Sciences (2023)<br>
+        BSc (Hons) in Aeronautical Engineering (Expected 2028)<br><br>
+        <b>Honors & Awards</b><br>
+        Certificates of First Class: Mathematics (2020), Statistics (2021)
+      </p>
 
-    <div id="habits" class="tab-content">
-      <p>Current habits I’m working on:</p>
-      <ul>
-        <li>Waking up at 5am</li>
-        <li>Daily gym & skipping sessions</li>
-        <li>Evening reflection journal</li>
-        <li>Limiting phone use in the morning</li>
-      </ul>
+      <h2>Experience</h2>
+      <p>
+        <b>Engineers for the Future (2025 – present)</b><br>
+        Administrative Assistant
+      </p>
     </div>
-
-    <div id="study" class="tab-content">
-      <p>Study tips that work for me:</p>
-      <ul>
-        <li>Active recall with mini-quizzes</li>
-        <li>Pomodoro (25/5 rule)</li>
-        <li>Concept maps for engineering topics</li>
-        <li>Studying with snacks & Bioplus for focus</li>
-      </ul>
-    </div>
-
   </main>
 
   <script>
-    function openTab(evt, tabName) {
-      let tabs = document.querySelectorAll('.tab-content');
-      let buttons = document.querySelectorAll('.tab-link');
-      
-      tabs.forEach(tab => tab.classList.remove('active'));
-      buttons.forEach(btn => btn.classList.remove('active'));
-      
-      document.getElementById(tabName).classList.add('active');
-      evt.currentTarget.classList.add('active');
-    }
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
   </script>
 
 </body>
