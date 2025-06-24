@@ -63,7 +63,7 @@
     }
 
     nav {
-      padding-right: 10rem;
+      padding-right: 9rem;
       margin-top: 4rem;
     }
 
@@ -140,45 +140,86 @@
     }
 
     main {
-      max-width: 800px;
-      margin: 7rem auto 2rem auto;
+      max-width: 1000px;
+      margin: 7rem auto 4rem auto;
       padding: 2rem;
-      text-align: center;
     }
 
-    h2 {
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2.section-title {
       font-size: 1.6rem;
-      margin-bottom: 1rem;
+      border-bottom: 2px solid #0077b5;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    p {
-      color: #aaa;
-      font-size: 1rem;
-      line-height: 1.7;
+    .project-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
     }
 
-    footer {
-  position: relative;
-  bottom: 1rem;
-  width: 100%;
-  text-align: center;
-  font-size: 0.82rem;
-  color: #aaa;
-  padding-top: 0.5rem;
-  margin-top: 2rem;
-}
+    .project-card {
+      background-color: #2a2a2a;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 280px;
+      transition: transform 0.3s ease;
+    }
 
-.icons a {
-  margin: 0 0.5rem;
-  color: #eaeaea;
-  font-size: 1.05rem;
-  text-decoration: none;
-}
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
 
-.icons a:hover {
-  color: #0077b5;
-}
+    .project-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      position: relative;
+    }
 
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 180px;
+      background: rgba(0, 119, 181, 0.6);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay span {
+      font-size: 1.1rem;
+      color: #00aaff;
+    }
+
+    .project-description {
+      padding: 1rem;
+    }
+
+    .project-description h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-description p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body>
@@ -197,26 +238,66 @@
 
   <main>
 
-    <p>Coming soon...</p>
+    <!-- Programming Section -->
+    <section>
+      <h2 class="section-title">Programming</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="your-image.jpg" alt="Linear Algebra with Python" class="project-image">
+            <div class="overlay"><span>Read more</span></div>
+          </div>
+          <div class="project-description">
+            <h3>Linear Algebra with Python</h3>
+            <p>A beginner-friendly project exploring linear algebra concepts through Python code, matrix manipulation, and visualization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mechanical Section -->
+    <section>
+      <h2 class="section-title">Mechanical</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="your-image.jpg" alt="Drone Frame Design" class="project-image">
+            <div class="overlay"><span>Read more</span></div>
+          </div>
+          <div class="project-description">
+            <h3>Drone Frame Design (Quadcopter)</h3>
+            <p>Design of a quadcopter frame using SolidWorks, with focus on strength-to-weight optimization for aeronautical use.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Embedded Systems & Robotics Section -->
+    <section>
+      <h2 class="section-title">Embedded Systems & Robotics</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="your-image.jpg" alt="Sensor Project" class="project-image">
+            <div class="overlay"><span>Read more</span></div>
+          </div>
+          <div class="project-description">
+            <h3>Pressure & Temperature Sensor</h3>
+            <p>An Arduino-based sensor project for detecting pressure and temperature levels, ideal for embedded system prototyping.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <script>
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav');
-
     toggle.addEventListener('click', () => {
       nav.classList.toggle('active');
     });
   </script>
-
-  <footer>
-  <p>&copy; Copyright 2025</p>
-  <div class="icons">
-    <a href="mailto:nnomfundo.mkhwanazi@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-    <a href="https://github.com/nnomfundo" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://linkedin.com/in/nomfundomkhwanazi" target="_blank"><i class="fab fa-linkedin"></i></a>
-  </div>
-</footer>
 
 </body>
 </html>
