@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nomfundo Mkhwanazi | Portfolio</title>
+  <title>Projects | Nomfundo Mkhwanazi</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -14,10 +14,7 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+    body {
       font-family: 'Outfit', sans-serif;
       background-color: #1a1a1a;
       color: #eaeaea;
@@ -45,10 +42,9 @@
     }
 
     header h1 a {
-      position: relative;
       color: inherit;
       text-decoration: none;
-      transition: color 0.3s ease;
+      position: relative;
     }
 
     header h1 a::after {
@@ -67,7 +63,7 @@
     }
 
     nav {
-      padding-right: 10rem;
+      padding-right: 9rem;
       margin-top: 4rem;
     }
 
@@ -143,88 +139,101 @@
       }
     }
 
-    .center-content {
-      width: 100%;
-      height: 100vh;
+    main {
+      max-width: 1000px;
+      margin: 7rem auto 4rem auto;
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2.section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .section-underline {
+      height: 1px;
+      background-color: #eaeaea;
+      opacity: 0.2;
+      margin: 0.5rem 0 2rem;
+    }
+
+    .project-grid {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .project-card {
+      background-color: #2a2a2a;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 280px;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      position: relative;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 180px;
+      background: rgba(0, 119, 181, 0.6);
+      color: white;
+      display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding-top: 2rem;
-      margin-top: -2.08rem;
-    }
-
-    .profile {
       opacity: 0;
-      animation: fadeIn 1.5s ease-out 0.6s forwards;
+      transition: opacity 0.3s ease;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .project-card:hover .overlay {
+      opacity: 1;
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .overlay span {
+      font-size: 1.1rem;
+      color: #00aaff;
     }
 
-    .fade-up {
-      opacity: 0;
-      animation: fadeUp 1.5s ease-out 0.2s forwards;
+    .project-description {
+      padding: 1rem;
     }
 
-    .profile img {
-      width: 310px;
-      height: 310px;
-      border-radius: 50%;
-      object-fit: cover;
-      animation: glowFade 2.1s ease forwards;
-      transition: box-shadow 0.9s ease;
+    .project-description h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
     }
 
-    .glow-on-load {
-      box-shadow: 0 0 20px #0077b5;
-    }
-
-    .profile img:hover {
-      box-shadow: 0 0 20px #0077b5;
-    }
-
-    .description {
-      margin-top: 1rem;
-      font-size: 1rem;
-      max-width: 500px;
-      color: #aaa;
-    }
-
-    .institution {
-      font-size: 1rem;
-      color: #aaa;
-      margin-top: 0.3rem;
+    .project-description p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.4;
     }
 
     footer {
-      position: absolute;
+      position: relative;
       bottom: 1rem;
       width: 100%;
       text-align: center;
       font-size: 0.82rem;
       color: #aaa;
       padding-top: 0.5rem;
+      margin-top: 2rem;
     }
 
     .icons a {
@@ -253,13 +262,71 @@
     </nav>
   </header>
 
-  <main class="center-content">
-    <div class="profile">
-      <img id="profile-img" src="me.jpg" alt="Your Profile Picture" class="glow-on-load" />
-      <p class="description fade-up">Aeronautical Engineering Student</p>
-      <p class="institution fade-up">Learning Engineering Design, 3D Printing & Embedded Systems</p>
-    </div>
+  <main>
+
+    <!-- Programming Section -->
+    <section>
+      <h2 class="section-title">Programming</h2>
+      <div class="section-underline"></div>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="your-image.jpg" alt="Linear Algebra with Python" class="project-image">
+            <div class="overlay"><span>Read more</span></div>
+          </div>
+          <div class="project-description">
+            <h3>Linear Algebra with Python</h3>
+            <p>A beginner-friendly project exploring linear algebra concepts through Python code, matrix manipulation, and visualization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mechanical Section -->
+    <section>
+      <h2 class="section-title">Mechanical</h2>
+      <div class="section-underline"></div>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="your-image.jpg" alt="Drone Frame Design" class="project-image">
+            <div class="overlay"><span>Read more</span></div>
+          </div>
+          <div class="project-description">
+            <h3>Drone Frame Design (Quadcopter)</h3>
+            <p>Design of a quadcopter frame using SolidWorks, with focus on strength-to-weight optimization for aeronautical use.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Embedded Systems & Robotics Section -->
+    <section>
+      <h2 class="section-title">Embedded Systems & Robotics</h2>
+      <div class="section-underline"></div>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="your-image.jpg" alt="Sensor Project" class="project-image">
+            <div class="overlay"><span>Read more</span></div>
+          </div>
+          <div class="project-description">
+            <h3>Motion Sensor Smart Dustbin</h3>
+            <p>This project showcases a hands-free smart dustbin system built using an Arduino Uno, ultrasonic motion sensor (HC-SR04), and a servo motor. The system automatically opens the dustbin lid when it detects a hand or object within a short distance, and closes it after a brief delay—enhancing hygiene and convenience in waste disposal. It demonstrates core embedded systems principles such as sensor-based input, actuator control, and real-time response, making it a practical and beginner-friendly automation solution.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
 
   <footer>
     <p>&copy; Copyright 2025</p>
@@ -269,22 +336,6 @@
       <a href="https://linkedin.com/in/nomfundomkhwanazi" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
   </footer>
-
-  <script>
-    const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('main-nav');
-
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const img = document.getElementById('profile-img');
-      setTimeout(() => {
-        img.classList.remove('glow-on-load');
-      }, 2100);
-    });
-  </script>
 
 </body>
 </html>
