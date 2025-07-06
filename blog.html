@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | Nomfundo Mkhwanazi</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #1a1a1a;
+      color: #eaeaea;
+    }
+
+    header {
+      width: 100%;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: rgba(26, 26, 26, 0.9);
+      backdrop-filter: blur(3px);
+    }
+
+    header h1 {
+      font-size: 1.37rem;
+      font-weight: 700;
+      padding-left: 10rem;
+      margin-top: 2.6rem;
+    }
+
+    header h1 a {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+    }
+
+    header h1 a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background-color: #0077b5;
+      transition: width 0.4s ease;
+    }
+
+    header h1 a:hover::after {
+      width: 100%;
+    }
+
+    nav {
+      padding-right: 10rem;
+      margin-top: 4rem;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      color: #aaa;
+      text-decoration: none;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav a::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background: #0077b5;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: #eaeaea;
+      cursor: pointer;
+      padding-right: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #1a1a1a;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0;
+        text-align: center;
+      }
+
+      nav a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      header h1 {
+        padding-left: 1rem;
+        margin-top: 2.6rem;
+      }
+
+      .tab-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    main {
+      max-width: 900px;
+      margin: 7rem auto 2rem auto;
+      padding: 2rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #444;
+      padding-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: space-around;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .tab-buttons button {
+      background-color: #2b2b2b;
+      border: 1px solid #444;
+      padding: 0.6rem 1.5rem;
+      color: #eaeaea;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .tab-buttons button:hover,
+    .tab-buttons button.active {
+      background-color: #0077b5;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease-in;
+      margin-top: 1rem;
+      color: #ccc;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    blockquote {
+      font-style: italic;
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid #444;
+      color: #aaa;
+    }
+
+    cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    footer {
+  position: relative;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  font-size: 0.82rem;
+  color: #aaa;
+  padding-top: 0.5rem;
+  margin-top: 2rem;
+}
+
+.icons a {
+  margin: 0 0.5rem;
+  color: #eaeaea;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+.icons a:hover {
+  color: #0077b5;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><a href="index.html">Nomfundo Mkhwanazi</a></h1>
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="main-nav">
+      <a href="projects.html">Projects</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+
+
+    <div class="section-title">Personal Development</div>
+
+    <div class="tab-buttons">
+      <button class="tab-link active" onclick="openTab(event, 'quotes')">Quotes</button>
+      <button class="tab-link" onclick="openTab(event, 'journaling')">Journaling</button>
+      <button class="tab-link" onclick="openTab(event, 'habits')">Habits</button>
+      <button class="tab-link" onclick="openTab(event, 'study')">Study Tips</button>
+    </div>
+
+    <div id="quotes" class="tab-content active">
+      <blockquote>“Be quick, be quiet, be on time.”<cite>— Clarence Leonard 'Kelly' Johnson</cite></blockquote>
+      <blockquote>“There's really not a difficult thing unless you decide it's a difficult thing. Otherwise, it's just the next thing you're figuring out.”<cite>— Kai Skye</cite></blockquote>
+    </div>
+
+    <div id="journaling" class="tab-content">
+      <p style="margin-bottom: 20px;">Journaling is a powerful tool for self-reflection, clarity, and growth. Whether it's used to process emotions, track progress, or capture fleeting thoughts, writing regularly helps individuals stay grounded and intentional in their daily lives. It creates a safe space to untangle complex feelings, set meaningful goals, and observe patterns over time. For many, journaling becomes not just a habit but a companion in personal development — a mirror that reflects where they've been, where they are, and where they hope to go.</p>
+      <p style="margin-bottom: 20px;">Journaling has helped me reflect and restart with clear goals. I make it a habit to read through my journals every six months to see whether the thoughts I wrote intuitively still reflect the kind of person I'm striving to become. It's easy to get lost in moments and forget to be intentional with every decision — but my journal reflects my state of mind. I use it to go back, introspect, and make sure my actions align with my long-term goals. This is an ongoing practice. It definitely gets easier, and with time, becomes second nature.</p>
+      <p>It's wonderful to witness your own growth — to see how your thoughts, values, and self awareness have evolved over time, and to know that the growth was intentional.</p>
+    </div>
+
+    <div id="habits" class="tab-content">
+      <p>Coming soon...</p>
+    </div>
+
+    <div id="study" class="tab-content">
+      <p>Coming soon...</p>
+    </div>
+  </main>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+
+    // Tab switching
+    function openTab(evt, tabName) {
+      let tabs = document.querySelectorAll('.tab-content');
+      let buttons = document.querySelectorAll('.tab-link');
+      
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
+
+
+  <footer>
+  <p>&copy; Copyright 2025</p>
+  <div class="icons">
+    <a href="mailto:nnomfundo.mkhwanazi@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+    <a href="https://github.com/nnomfundo" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://linkedin.com/in/nomfundomkhwanazi" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+</footer>
+
+</body>
+</html>
