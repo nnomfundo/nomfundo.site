@@ -8,45 +8,140 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Outfit', sans-serif;
       background-color: #1a1a1a;
       color: #eaeaea;
-      margin: 0;
-      padding: 0;
     }
 
     header {
+      width: 100%;
       padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #1a1a1a;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: rgba(26, 26, 26, 0.9);
+      backdrop-filter: blur(3px);
     }
 
     header h1 {
-      font-size: 1.4rem;
+      font-size: 1.37rem;
       font-weight: 700;
+      padding-left: 10rem;
+      margin-top: 1.6rem;
     }
 
     header h1 a {
+      color: inherit;
       text-decoration: none;
-      color: #eaeaea;
+      position: relative;
+    }
+
+    header h1 a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background-color: #0077b5;
+      transition: width 0.4s ease;
+    }
+
+    header h1 a:hover::after {
+      width: 100%;
+    }
+
+    nav {
+      padding-right: 9rem;
+      margin-top: 4rem;
     }
 
     nav a {
       margin-left: 1.5rem;
       color: #aaa;
       text-decoration: none;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav a::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background: #0077b5;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
     }
 
     nav a:hover {
       color: #fff;
     }
 
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: #eaeaea;
+      cursor: pointer;
+      padding-right: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #1a1a1a;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0;
+        text-align: center;
+      }
+
+      nav a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      header h1 {
+        padding-left: 1rem;
+        margin-top: 2.6rem;
+      }
+    }
+
     main {
       max-width: 900px;
-      margin: 3rem auto;
+      margin: 7rem auto 3rem auto;
       padding: 2rem;
     }
 
@@ -84,11 +179,11 @@
 
     .image-grid img {
       width: 100%;
-  aspect-ratio: 4 / 3; /* A4-ish shape */
-  object-fit: contain;
-  border-radius: 8px;
-  border: 1px solid #444;
-  background-color: #222; 
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background-color: #222;
     }
 
     footer {
@@ -114,7 +209,10 @@
 
   <header>
     <h1><a href="index.html">Nomfundo Mkhwanazi</a></h1>
-    <nav>
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="main-nav">
       <a href="projects.html">Projects</a>
       <a href="blog.html">Blog</a>
       <a href="about.html">About</a>
@@ -123,20 +221,21 @@
 
   <main>
     <h2>S500 Quadcopter Drone Drawing</h2>
-    <p>This page showcases the mechanical design of an S500 quadcopter drone, modeled using <strong>SolidEdge</strong>. The focus is on structural balance, arm integration, and aerodynamic layout. Explore the visual breakdown below.</p>
+    <p>This page showcases the mechanical drawing of an S500 quadcopter drone, modeled using <strong>SolidEdge</strong>. The aim of this project was to sharpen my CAD skills and gain a deeper understanding of structural design principles—particularly the importance of optimizing the strength-to-weight ratio in mechanical components.</p>
 
     <!-- Section 1: Initial Frame Design -->
     <h3>Initial Frame Drawing</h3>
-    <p>The initial drone frame included triangular cutouts in the arms to reduce weight. However, I later learned that sharp corners can become stress concentration points, which may weaken the structure under load. This insight led me to revise the design to improve durability without compromising on weight efficiency.</p>
+    <p>The first stage involved creating a symmetrical base structure with strategic cutouts to reduce material usage while maintaining structural integrity. This pushed me to think critically about load paths, symmetry, and the role of geometry in minimizing weight without compromising strength. </p>
+    <p> The initial drone frame included triangular cutouts in the arms to reduce weight. However, I later learned that sharp corners can become stress concentration points, which may weaken the structure under load. I later added 1mm fillets in all sharp corners as seen in the mid-stage assembly.</p>
 
     <div class="image-grid">
-  <iframe
-    src="https://drive.google.com/file/d/1oRKrLr_PydDFJIkK2bX922Y9wGIHh3Z0/preview"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
-    style="border:none; width: 100%; aspect-ratio: 4 / 3; border-radius: 8px; background-color: #222;"
-  ></iframe>
-</div>
+      <iframe
+        src="https://drive.google.com/file/d/1oRKrLr_PydDFJIkK2bX922Y9wGIHh3Z0/preview"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        style="border:none; width: 100%; aspect-ratio: 4 / 3; border-radius: 8px; background-color: #222;"
+      ></iframe>
+    </div>
 
     <div class="image-grid">
       <img src="droneinitialiso.jpg" alt="Initial isometric drawing of drone frame" />
@@ -144,23 +243,29 @@
 
     <!-- Section 2: Completed Quadcopter -->
     <h3>Mid-Stage Assembly</h3>
-    <p>This drawing shows the S500 quadcopter frame with additional structural elements, including cylindrical placeholders and a layered plate setup. It represents the next step in the modeling process, where the flat frame begins to take on a 3D form to suggest where components like motors or landing gear would be positioned. While not a finalized design, this drawing helps visualize the drone’s assembly and layout more realistically.</p>
+    <p>The second stage involved assembling components on the frame, which helped reinforce my knowledge of 3D modeling tools like extrusion, offsetting, and alignment. I had to ensure that each part was properly positioned and constrained within the overall structure, which required careful use of lofting, patterning, and reference planes.</p>
 
-   <div class="image-grid">
-    <iframe
-  src="https://drive.google.com/file/d/1biny7jyVOCq7wVBDzFPpkPnx7MDDQrB8/preview"
-  width="640" height="360"
-  allow="autoplay; encrypted-media"
-  allowfullscreen
-  style="border:none; width: 100%; aspect-ratio: 4 / 3; border-radius: 8px; background-color: #222;"
-></iframe>
-     </div>
-
+    <div class="image-grid">
+      <iframe
+        src="https://drive.google.com/file/d/1biny7jyVOCq7wVBDzFPpkPnx7MDDQrB8/preview"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        style="border:none; width: 100%; aspect-ratio: 4 / 3; border-radius: 8px; background-color: #222;"
+      ></iframe>
+    </div>
 
     <div class="image-grid">
       <img src="dronecompletediso.jpg" alt="Mid-Stage Assembly Isometric Drawing" />
     </div>
   </main>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
 
   <footer>
     <p>&copy; 2025 Nomfundo Mkhwanazi</p>
