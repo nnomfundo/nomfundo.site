@@ -137,11 +137,6 @@
         padding-left: 1rem;
         margin-top: 2.6rem;
       }
-
-      .tab-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
     }
 
     main {
@@ -150,53 +145,18 @@
       padding: 2rem;
     }
 
-    h2 {
+    h2.section-title {
       font-size: 2rem;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    .section-title {
-      font-size: 1.4rem;
       margin-bottom: 1rem;
       border-bottom: 1px solid #444;
       padding-bottom: 0.5rem;
       text-align: center;
     }
 
-    .tab-buttons {
-      display: flex;
-      justify-content: space-around;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
-
-    .tab-buttons button {
-      background-color: #2b2b2b;
-      border: 1px solid #444;
-      padding: 0.6rem 1.5rem;
-      color: #eaeaea;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 5px;
-      margin: 0.5rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .tab-buttons button:hover,
-    .tab-buttons button.active {
-      background-color: #0077b5;
-    }
-
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.3s ease-in;
-      margin-top: 1rem;
-      color: #ccc;
-    }
-
-    .tab-content.active {
-      display: block;
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      text-align: left;
     }
 
     blockquote {
@@ -214,33 +174,27 @@
       color: #777;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+    footer {
+      position: relative;
+      bottom: 1rem;
+      width: 100%;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #aaa;
+      padding-top: 0.5rem;
+      margin-top: 2rem;
     }
 
-    footer {
-  position: relative;
-  bottom: 1rem;
-  width: 100%;
-  text-align: center;
-  font-size: 0.82rem;
-  color: #aaa;
-  padding-top: 0.5rem;
-  margin-top: 2rem;
-}
+    .icons a {
+      margin: 0 0.5rem;
+      color: #eaeaea;
+      font-size: 1.05rem;
+      text-decoration: none;
+    }
 
-.icons a {
-  margin: 0 0.5rem;
-  color: #eaeaea;
-  font-size: 1.05rem;
-  text-decoration: none;
-}
-
-.icons a:hover {
-  color: #0077b5;
-}
-
+    .icons a:hover {
+      color: #0077b5;
+    }
   </style>
 </head>
 <body>
@@ -258,35 +212,12 @@
   </header>
 
   <main>
+    <h2 class="section-title">Personal Development</h2>
 
+    <h3>Quotes</h3>
 
-    <div class="section-title">Personal Development</div>
-
-    <div class="tab-buttons">
-      <button class="tab-link active" onclick="openTab(event, 'quotes')">Quotes</button>
-      <button class="tab-link" onclick="openTab(event, 'journaling')">Journaling</button>
-      <button class="tab-link" onclick="openTab(event, 'habits')">Habits</button>
-      <button class="tab-link" onclick="openTab(event, 'study')">Study Tips</button>
-    </div>
-
-    <div id="quotes" class="tab-content active">
-      <blockquote>“Be quick, be quiet, be on time.”<cite>— Clarence Leonard 'Kelly' Johnson</cite></blockquote>
-      <blockquote>“There's really not a difficult thing unless you decide it's a difficult thing. Otherwise, it's just the next thing you're figuring out.”<cite>— Kai Skye</cite></blockquote>
-    </div>
-
-    <div id="journaling" class="tab-content">
-      <p style="margin-bottom: 20px;">Journaling is a powerful tool for self-reflection, clarity, and growth. Whether it's used to process emotions, track progress, or capture fleeting thoughts, writing regularly helps individuals stay grounded and intentional in their daily lives. It creates a safe space to untangle complex feelings, set meaningful goals, and observe patterns over time. For many, journaling becomes not just a habit but a companion in personal development — a mirror that reflects where they've been, where they are, and where they hope to go.</p>
-      <p style="margin-bottom: 20px;">Journaling has helped me reflect and restart with clear goals. I make it a habit to read through my journals every six months to see whether the thoughts I wrote intuitively still reflect the kind of person I'm striving to become. It's easy to get lost in moments and forget to be intentional with every decision — but my journal reflects my state of mind. I use it to go back, introspect, and make sure my actions align with my long-term goals. This is an ongoing practice. It definitely gets easier, and with time, becomes second nature.</p>
-      <p>It's wonderful to witness your own growth — to see how your thoughts, values, and self awareness have evolved over time, and to know that the growth was intentional.</p>
-    </div>
-
-    <div id="habits" class="tab-content">
-      <p>Coming soon...</p>
-    </div>
-
-    <div id="study" class="tab-content">
-      <p>Coming soon...</p>
-    </div>
+    <blockquote>“Be quick, be quiet, be on time.”<cite>— Clarence Leonard 'Kelly' Johnson</cite></blockquote>
+    <blockquote>“There's really not a difficult thing unless you decide it's a difficult thing. Otherwise, it's just the next thing you're figuring out.”<cite>— Kai Skye</cite></blockquote>
   </main>
 
   <script>
@@ -297,29 +228,16 @@
     toggle.addEventListener('click', () => {
       nav.classList.toggle('active');
     });
-
-    // Tab switching
-    function openTab(evt, tabName) {
-      let tabs = document.querySelectorAll('.tab-content');
-      let buttons = document.querySelectorAll('.tab-link');
-      
-      tabs.forEach(tab => tab.classList.remove('active'));
-      buttons.forEach(btn => btn.classList.remove('active'));
-      
-      document.getElementById(tabName).classList.add('active');
-      evt.currentTarget.classList.add('active');
-    }
   </script>
 
-
   <footer>
-  <p>&copy; Copyright 2025</p>
-  <div class="icons">
-    <a href="mailto:nnomfundo.mkhwanazi@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-    <a href="https://github.com/nnomfundo" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://linkedin.com/in/nomfundomkhwanazi" target="_blank"><i class="fab fa-linkedin"></i></a>
-  </div>
-</footer>
+    <p>&copy; Copyright 2025</p>
+    <div class="icons">
+      <a href="mailto:nnomfundo.mkhwanazi@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/nnomfundo" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/nomfundomkhwanazi" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
 
 </body>
 </html>
