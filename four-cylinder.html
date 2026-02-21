@@ -163,90 +163,90 @@
       margin-bottom: 1rem;
     }
 
-    /* COMPONENT GRID */
-
     .component-grid {
-
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
       margin-top: 1.5rem;
-
     }
 
     .component-card {
-
       background-color: #222;
       padding: 1rem;
       border-radius: 8px;
       border: 1px solid #444;
       text-align: center;
-
     }
 
     .component-card img {
-
       width: 100%;
       aspect-ratio: 4/3;
       object-fit: contain;
       border-radius: 6px;
       margin-bottom: 0.5rem;
-
     }
 
     .component-card p {
-
       margin: 0;
       font-size: 0.95rem;
       color: #ddd;
-
     }
 
     iframe {
-
       width: 100%;
       aspect-ratio: 16/9;
       border-radius: 8px;
       border: 1px solid #444;
       margin-top: 1rem;
-
     }
 
-    /* FINAL IMAGE STYLE */
-
     .final-image {
-
       width: 100%;
       margin-top: 1.5rem;
       border-radius: 8px;
       border: 1px solid #444;
       background-color: #222;
       object-fit: contain;
+    }
 
+    /* TUTORIAL LINKS SECTION */
+
+    .tutorial-links {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background-color: #222;
+      border-radius: 8px;
+      border: 1px solid #444;
+    }
+
+    .tutorial-links a {
+      display: block;
+      margin-bottom: 0.8rem;
+      color: #00aaff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .tutorial-links a:hover {
+      color: #ffffff;
     }
 
     footer {
-
       text-align: center;
       font-size: 0.85rem;
       color: #aaa;
       margin-top: 4rem;
       padding-bottom: 1rem;
-
     }
 
     .icons a {
-
       margin: 0 0.5rem;
       color: #eaeaea;
       text-decoration: none;
-
     }
 
     .icons a:hover {
-
       color: #0077b5;
-
     }
 
   </style>
@@ -255,7 +255,6 @@
 <body>
 
 <header>
-
   <h1><a href="index.html">Nomfundo Mkhwanazi</a></h1>
 
   <div class="menu-toggle" id="menu-toggle">
@@ -263,28 +262,19 @@
   </div>
 
   <nav id="main-nav">
-
     <a href="projects.html">Projects</a>
     <a href="blog.html">Blog</a>
     <a href="about.html">About</a>
-
   </nav>
-
 </header>
 
 <main>
 
-  <!-- TITLE -->
-
   <h2>Four Cylinder Engine Assembly</h2>
 
   <p>
-
-    This page showcases the complete assembly of a four-cylinder internal combustion engine, modeled using <strong>Autodesk Inventor</strong>. The aim of this project was to strengthen my CAD skills through detailed component modeling, assembly constraints, and motion simulation.
-
+    This project was completed as a guided CAD practice exercise to strengthen my assembly modelling, constraint management skills, and motion simulation, modeled using Autodesk Inventor.
   </p>
-
-  <!-- KEY COMPONENTS -->
 
   <h3>Key Components Modelled</h3>
 
@@ -312,17 +302,11 @@
 
   </div>
 
-  <!-- COMPLETE MODEL -->
-
   <h3>The Complete Model</h3>
 
   <p>
-
     The final assembly integrates all major engine components into a fully constrained system capable of motion simulation. This stage helped reinforce my understanding of assembly relationships, mechanical motion, and parametric design.
-
   </p>
-
-  <!-- VIDEO -->
 
   <iframe
     src="https://drive.google.com/file/d/1xh90TK0ohIyc5OYxDhzJWZ59ulx0DcEC/preview"
@@ -330,21 +314,32 @@
     allowfullscreen>
   </iframe>
 
-  <!-- IMAGE BELOW VIDEO -->
-
   <img src="piston_engine_assembly.0004.jpg" alt="Complete Four Cylinder Engine Assembly" class="final-image">
+
+  <!-- TUTORIAL LINKS -->
+
+  <div class="tutorial-links">
+    <h3>Tutorials Followed</h3>
+
+    <a href="https://youtu.be/NZCMTK9VTSQ?si=wDIdDAWrGogRdwaG" target="_blank">
+      <i class="fab fa-youtube"></i> CAM CAD TUTORIAL BY MAHTABALAM – Four Cylinder Engine Solidworks
+    </a>
+
+    <a href="https://youtu.be/WVX7jRljp7k?si=Afr3ci2u3WrKfgRc" target="_blank">
+      <i class="fab fa-youtube"></i> SOLID CAM PRO – Four Cylinder Engine Autodesk Inventor
+    </a>
+
+  </div>
 
 </main>
 
 <script>
-
   const toggle = document.getElementById('menu-toggle');
   const nav = document.getElementById('main-nav');
 
   toggle.addEventListener('click', () => {
     nav.classList.toggle('active');
   });
-
 </script>
 
 <footer>
@@ -352,11 +347,9 @@
   <p>&copy; 2025 Nomfundo Mkhwanazi</p>
 
   <div class="icons">
-
     <a href="mailto:nnomfundo.mkhwanazi@gmail.com"><i class="fas fa-envelope"></i></a>
     <a href="https://github.com/nnomfundo"><i class="fab fa-github"></i></a>
     <a href="https://linkedin.com/in/nomfundomkhwanazi"><i class="fab fa-linkedin"></i></a>
-
   </div>
 
 </footer>
